@@ -34,7 +34,16 @@ class App < Sinatra::Base
     @number2 = params[:number2].to_i 
     @operation = params[:operation]
     
-    @number1.send(@operation, @number2).to_s 
+    if @operation == "add"
+      @number1 + @number2
+    elsif @operation == "subtract"
+      @number1 = @number2
+    elsif @operation == "multiply"
+      @number1 * @number2
+    else
+      @number1 / @number2
+    end 
+      
 
   end
 
